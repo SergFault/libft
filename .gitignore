@@ -1,0 +1,17 @@
+/LibTest/test.c
+/unit_test.c
+/googletest-master/
+/LibTest/test
+/libft.a
+*.o
+*.out
+/LibTest/Makefile
+/.idea/
+/.vscode/
+/LibTest/
+/CMakeLists.txt
+/testfile.txt
+/testfile1.txt
+/testfile2.txt
+/testfile3.txt
+/testfile4.txt
