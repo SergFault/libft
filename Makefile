@@ -20,7 +20,7 @@ CC = gcc
 FLAGS = -Wextra -Wall -Werror -std=c99
 
 %.o: %.c libft.h
-	$(CC) -g -c $(FLAGS) -o $@ $< #delete debug g
+	$(CC) -g -v -c $(FLAGS) -o $@ $< #delete debug g
 
 $(NAME): $(OBJ) $(OBJB)
 	ar crs $(NAME) $(OBJ)

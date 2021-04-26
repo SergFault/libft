@@ -14,7 +14,7 @@
 
 static size_t	ft_datasnaps(const char *str, char del)
 {
-	size_t c;
+	size_t	c;
 
 	c = 0;
 	while (*str)
@@ -32,11 +32,11 @@ static size_t	ft_datasnaps(const char *str, char del)
 	return (c);
 }
 
-static int		ft_parce(char **str, const char *src, char del,
+static int	ft_parce(char **str, const char *src, char del,
 					size_t d_snaps)
 {
-	size_t size;
-	size_t str_n;
+	size_t	size;
+	size_t	str_n;
 
 	str_n = 0;
 	while (str_n < d_snaps)
@@ -49,25 +49,29 @@ static int		ft_parce(char **str, const char *src, char del,
 			src++;
 			size++;
 		}
-		if (!(str[str_n] = (char*)malloc(sizeof(char) * (size + 1))))
+		str[str_n] = (char *)malloc(sizeof(char) * (size + 1));
+		if (!(str[str_n]))
 			return (0);
 		src -= size;
-		while (size--)
-			ft_strlcat(str[str_n], src++, ft_strlen(str[str_n]) + 2);
+		ft_strlcpy(str[str_n], src, size + 1);
+		src += size;
 		str_n++;
 	}
 	return (1);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**ret;
 	size_t	data_snaps;
 
+	if (!s)
+		return (NULL);
 	data_snaps = ft_datasnaps(s, c);
-	if (!(ret = (char**)malloc(sizeof(char*) * (data_snaps + 1))))
-		return (0);
+	ret = (char **)malloc(sizeof(char *) * (data_snaps + 1));
+	if (!(ret))
+		return (NULL);
 	ft_parce(ret, s, c, data_snaps);
-	ret[data_snaps] = 0;
+	ret[data_snaps] = NULL;
 	return (ret);
 }
