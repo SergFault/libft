@@ -14,7 +14,7 @@
 
 static size_t	ft_locate_first(char const *s1, char const *set)
 {
-	size_t first;
+	size_t	first;
 
 	first = 0;
 	while (s1[first])
@@ -29,8 +29,8 @@ static size_t	ft_locate_first(char const *s1, char const *set)
 
 static size_t	ft_locate_last(char const *s1, char const *set)
 {
-	size_t last;
-	size_t c;
+	size_t	last;
+	size_t	c;
 
 	last = 0;
 	c = 0;
@@ -44,7 +44,7 @@ static size_t	ft_locate_last(char const *s1, char const *set)
 	return (last);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	first;
 	size_t	last;
@@ -58,7 +58,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	last = ft_locate_last(s1, set);
 	if ((first == last) && (ft_strchr(set, s1[first])))
 		return (ft_strdup(""));
-	if (!(trimmed = (char*)malloc(sizeof(char) * ((last - first + 1) + 1))))
+	trimmed = (char *)malloc(sizeof(char) * ((last - first + 1) + 1));
+	if (!(trimmed))
 		return (0);
 	ft_strlcpy(trimmed, s1 + first, (last - first + 1) + 1);
 	return (trimmed);

@@ -18,7 +18,8 @@ char	*ft_strdup(const char *s)
 	char	*dup;
 
 	len = ft_strlen(s);
-	if (!(dup = (char*)malloc(sizeof(char) * len + 1)))
+	dup = (char *)malloc(sizeof(char) * len + 1);
+	if (!(dup))
 		return (0);
 	ft_strlcpy(dup, s, len * (sizeof(char)) + 1);
 	return (dup);

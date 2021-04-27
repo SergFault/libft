@@ -17,3 +17,5 @@
 /testfile4.txt
 *DS_Store*
 
+git
+*.gch

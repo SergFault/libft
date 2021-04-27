@@ -14,7 +14,7 @@
 
 static int	ft_rank(unsigned int num)
 {
-	unsigned int rank;
+	unsigned int	rank;
 
 	if (!(num))
 		return (1);
@@ -34,7 +34,7 @@ static int	ft_getsign(int num)
 	return (0);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int				rank;
 	int				sign;
@@ -46,7 +46,8 @@ char		*ft_itoa(int n)
 	if (sign)
 		num = -n;
 	rank = ft_rank(num) + sign;
-	if (!(ret = (char*)malloc(sizeof(char) * (rank + 1))))
+	ret = (char *)malloc(sizeof(char) * (rank + 1));
+	if (!(ret))
 		return (0);
 	ret[rank] = '\0';
 	while (num > 9)
