@@ -20,29 +20,26 @@ CC = gcc
 FLAGS = -Wextra -Wall -Werror -std=c99
 
 %.o: %.c libft.h
-	$(CC) -g -v -c $(FLAGS) -o $@ $< #delete debug g
+	$(CC) -g -c $(FLAGS) -o $@ $< #delete debug g
 
 $(NAME): $(OBJ) $(OBJB)
-	ar crs $(NAME) $(OBJ)
+	ar crs $(NAME) $? #put from prereqs newer than target
 
 so:									#delte static lib rule
 	$(CC) -fPIC $(CFLAGS) $(SRC)
 	gcc -shared -o libft.so $(OBJ)
 
-all : $(NAME)
+all: $(NAME)
 
-bonus: $(OBJ) $(OBJB)
-			ar rcs $(NAME) $(OBJ) $(OBJB)
+bonus:
+	@make OBJ="$(OBJB)" all
 
-tests :
-	cd LibTest && $(MAKE) #delete tests block
+clean:
+	@rm -f $(OBJ) $(OBJB)
 
-clean :
-	@rm -f $(OBJ)
-
-fclean : clean
+fclean: clean
 	@rm -f $(NAME)
 
-re : fclean all
+re: fclean all
 
-.PHONY : all bonus BRULE tests clean fclean re so#delete tests
+.PHONY : all bonus clean fclean re so#delete tests
