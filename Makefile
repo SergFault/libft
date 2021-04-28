@@ -19,10 +19,10 @@ CC = gcc
 
 FLAGS = -Wextra -Wall -Werror -std=c99
 
-%.o: %.c libft.h
+%.o: %.c
 	$(CC) -c $(FLAGS) -o $@ $<
 
-$(NAME): $(OBJ) $(OBJB)
+$(NAME): $(OBJ) libft.h
 	ar crs $(NAME) $? #put from prereqs newer than target
 
 so:
