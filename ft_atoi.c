@@ -31,7 +31,7 @@ static const char	*getsign(const char *nptr, int *minuses)
 	return (nptr);
 }
 
-int	ft_atoi(const char *nptr)
+int	   ft_atoi(const char *nptr)
 {
 	int				minuses;
 	int				rank;
