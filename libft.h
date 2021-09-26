@@ -6,7 +6,7 @@
 /*   By: sergey <sergey@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 17:23:00 by sergey            #+#    #+#             */
-/*   Updated: 2021/04/26 09:49:09 by sergey           ###   ########.fr       */
+/*   Updated: 2021/09/26 18:38:28 by sergey           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stddef.h>
+# include <limits.h>
 
 typedef struct s_list
 {

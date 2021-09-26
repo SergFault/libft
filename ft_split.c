@@ -12,6 +12,19 @@
 
 #include "libft.h"
 
+static int free_fail(char **str_a, int c)
+{
+	int counter;
+
+	counter = 0;
+	while(counter < c)
+	{
+		free(str_a[c]);
+		counter++;
+	}
+	return (0);
+}
+
 static size_t	ft_datasnaps(const char *str, char del)
 {
 	size_t	c;
@@ -32,8 +45,7 @@ static size_t	ft_datasnaps(const char *str, char del)
 	return (c);
 }
 
-static int	ft_parce(char **str, const char *src, char del,
-					size_t d_snaps)
+static int	ft_parse(char **str, const char *src, char del, size_t d_snaps)
 {
 	size_t	size;
 	size_t	str_n;
@@ -51,7 +63,7 @@ static int	ft_parce(char **str, const char *src, char del,
 		}
 		str[str_n] = (char *)malloc(sizeof(char) * (size + 1));
 		if (!(str[str_n]))
-			return (0);
+			return (free_fail(str, str_n));
 		src -= size;
 		ft_strlcpy(str[str_n], src, size + 1);
 		src += size;
@@ -71,7 +83,7 @@ char	**ft_split(char const *s, char c)
 	ret = (char **)malloc(sizeof(char *) * (data_snaps + 1));
 	if (!(ret))
 		return (NULL);
-	ft_parce(ret, s, c, data_snaps);
+	ft_parse(ret, s, c, data_snaps);
 	ret[data_snaps] = NULL;
 	return (ret);
 }

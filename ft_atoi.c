@@ -6,7 +6,7 @@
 /*   By: sergey <sergey@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 16:23:14 by sergey            #+#    #+#             */
-/*   Updated: 2021/04/27 12:14:14 by sergey           ###   ########.fr       */
+/*   Updated: 2021/09/26 18:41:13 by sergey           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	   ft_atoi(const char *nptr)
 {
 	int				minuses;
 	int				rank;
-	int				r;
+	long long int	r;
 
 	r = 0;
 	rank = 0;
@@ -46,10 +46,11 @@ int	   ft_atoi(const char *nptr)
 	{
 		r = r * 10 + (*nptr++ - ('0'));
 		rank++;
-		if (rank > 10 && minuses == 1)
-			return (-1);
-		if (rank > 10 && minuses == -1)
-			return (0);
+		if ((r * minuses) > INT_MAX || (r * minuses) < INT_MIN)
+		{
+			ft_putstr_fd("Error\n", STDOUT_FILENO);
+			exit(1);
+		}
 	}
 	return (r * (minuses));
 }
