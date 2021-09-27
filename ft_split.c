@@ -6,18 +6,18 @@
 /*   By: sergey <sergey@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 20:41:03 by sergey            #+#    #+#             */
-/*   Updated: 2021/04/27 12:14:14 by sergey           ###   ########.fr       */
+/*   Updated: 2021/09/27 16:14:23 by sergey           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int free_fail(char **str_a, int c)
+static int	free_fail(char **str_a, int c)
 {
-	int counter;
+	int	counter;
 
 	counter = 0;
-	while(counter < c)
+	while (counter < c)
 	{
 		free(str_a[c]);
 		counter++;

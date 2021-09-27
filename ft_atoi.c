@@ -6,7 +6,7 @@
 /*   By: sergey <sergey@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 16:23:14 by sergey            #+#    #+#             */
-/*   Updated: 2021/09/26 18:41:13 by sergey           ###   ########.fr       */
+/*   Updated: 2021/09/26 20:54:57 by sergey           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static const char	*getsign(const char *nptr, int *minuses)
 	return (nptr);
 }
 
-int	   ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int				minuses;
 	int				rank;
